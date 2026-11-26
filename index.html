@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust &amp; Estate Bookkeeping | Streamline Bookkeeping</title>
+    <meta name="description" content="Trust bookkeeping. A reliable referral for fiduciaries, attorneys, and CPAs with clients who need trust accounting help.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0374bc;
+            --primary-dark: #025a91;
+            --secondary: #2c3e50;
+            --accent: #f7ad54;
+            --light-gray: #f5f5f5;
+            --medium-gray: #666;
+            --text: #333;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 16px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header-contact {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+
+        .header-contact a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header-contact a:hover {
+            text-decoration: underline;
+        }
+        .header-content { flex-wrap: wrap; gap: 16px; }
+        .header-nav { display: flex; gap: 20px; align-items: center; font-size: 0.9rem; flex-wrap: wrap; }
+        .header-nav a { color: var(--medium-gray); text-decoration: none; }
+        .header-nav a:hover { color: var(--primary); }
+        .header-nav a.current { color: var(--primary); font-weight: 600; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        .btn-secondary-light {
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary-light:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 24px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: var(--light-gray);
+            padding: 32px;
+            border-radius: 8px;
+            margin: 32px 0;
+            border-left: 4px solid var(--primary);
+            text-align: left;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box strong {
+            color: var(--secondary);
+        }
+
+        /* What I Do */
+        .services {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .services-subtitle {
+            text-align: center;
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .service-item h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .service-item p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Who I Help */
+        .audience {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .audience h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 48px;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .audience-card {
+            padding: 32px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .audience-card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .audience-card p {
+            color: var(--medium-gray);
+        }
+
+        /* How It Works */
+        .process {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .process h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 48px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            color: var(--secondary);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: var(--medium-gray);
+        }
+
+        /* Lead Magnet Section */
+        .lead-magnet {
+            padding: 80px 0;
+            background: var(--secondary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .lead-magnet h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .lead-magnet > .container > p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto 32px;
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .signup-form input[type="email"] {
+            flex: 1;
+            min-width: 280px;
+            padding: 16px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .signup-form input[type="email"]:focus {
+            box-shadow: 0 0 0 3px rgba(247, 173, 84, 0.5);
+        }
+
+        .signup-form button {
+            background: var(--accent);
+            color: var(--secondary);
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .signup-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 16px;
+        }
+
+        #success-message {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* About */
+        .about {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            align-items: start;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .about-text h2 {
+            font-size: 1.75rem;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: var(--medium-gray);
+            margin-bottom: 16px;
+        }
+
+        .pricing {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 24px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 80px 0;
+            background: var(--primary);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .final-cta .btn-large {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .final-cta .btn-large:hover {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 16px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .btn-large {
+                padding: 16px 28px;
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-photo {
+                margin: 0 auto;
+            }
+
+            .signup-form {
+                flex-direction: column;
+            }
+
+            .signup-form input[type="email"] {
+                min-width: 100%;
+            }
+        }
+
+        /* Mobile nav */
+        .nav-toggle { display: none; background: none; border: 1px solid var(--line, #e0e0e0); border-radius: 6px; padding: 8px 10px; cursor: pointer; }
+        .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--secondary); margin: 4px 0; }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .header-nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 12px; font-size: 1rem; }
+            .header-nav.open { display: flex; }
+        }
+    </style>
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"695e8f1017dbee002189ef27"})},
+document.head.appendChild(o)}initApollo();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Streamline Bookkeeping","url":"https://fiduciarybooks.com/","telephone":"+1-510-545-2161","email":"jeff@fiduciarybooks.com","foundingDate":"2010","address":{"@type":"PostalAddress","streetAddress":"9929 Venice Blvd.","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90034","addressCountry":"US"},"founder":{"@type":"Person","name":"Jeff Kohn"},"areaServed":"US","knowsAbout":["Trust bookkeeping","IOLTA bookkeeping","Small business bookkeeping","Personal bookkeeping"]}</script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="https://streamlinebookkeeping.com" class="logo">Fiduciary Books</a>
+            <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <nav class="header-nav">
+                <a href="/" class="current">Trusts &amp; estates</a>
+                <a href="/iolta/">Law firms</a>
+                <a href="/small-business/">Small business</a>
+                <a href="/personal/">Personal</a>
+                <a href="tel:5105452161">(510) 545-2161</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Trust &amp; Estate Bookkeeping</h1>
+            <p class="hero-subtitle">Trust bookkeeping you can refer with confidence. When your clients need help with trust recordkeeping, send them to a bookkeeper who specializes in it.</p>
+            <div class="hero-cta">
+                <a href="https://go.oncehub.com/streamlinebookkeeping" class="btn-large btn-primary">Schedule a conversation</a>
+                <a href="#get-guide" class="btn-large btn-secondary-light">Get the free trustee guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>The critical distinction</h2>
+                <div class="highlight-box">
+                    <p><strong>Principal</strong> is the original asset (the house, the stock portfolio). <strong>Income</strong> is what it produces (rent, dividends).</p>
+                    <p style="margin-top: 16px;">Many trusts pay income to one person and leave principal to another. Getting this wrong causes incorrect distributions and tax problems.</p>
+                </div>
+                <p>Most trustee headaches start with one mistake: mixing up principal and income. If a dividend gets coded as principal instead of income, the wrong person's account grows. Do that for a year, and unwinding it is a nightmare.</p>
+                <p><strong>The fix:</strong> Track the separation monthly, not annually. Year-end becomes a review, not a reconstruction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do -->
+    <section class="services">
+        <div class="container">
+            <h2>What I do</h2>
+            <p class="services-subtitle">I handle trust bookkeeping so your clients stay compliant.</p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Principal vs. income tracking</h3>
+                    <p>Every transaction classified correctly so the right beneficiary gets the right amount.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Monthly reconciliation</h3>
+                    <p>Clean books every month. No scrambling at year-end or before tax time.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Court-ready reports</h3>
+                    <p>Accountings that satisfy legal requirements for conservatorships.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Tax-prep records</h3>
+                    <p>Everything your CPA needs for Form 1041, organized and ready to go.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who I Help -->
+    <section class="audience">
+        <div class="container">
+            <h2>Who I help</h2>
+            <p class="services-subtitle">We do all small personal and small business bookkeeping, specializing in trust and law firm bookkeeping.</p>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>Family trustees</h3>
+                    <p>Adult children managing parents' trusts who didn't sign up to be accountants.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>Professional fiduciaries</h3>
+                    <p>Licensed fiduciaries who want the bookkeeping handled so they can focus on administration.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>Conservators</h3>
+                    <p>Court-appointed conservators with accounting deadlines.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>Law firms with IOLTA accounts</h3>
+                    <p>Per-client ledgers, monthly three-way reconciliation, and the records a State Bar review asks for. <a href="/iolta/">Read about IOLTA bookkeeping.</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="process">
+        <div class="container">
+            <h2>How it works</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>You refer a client</h3>
+                    <p>Send them to this page or have them call me directly.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Free consultation</h3>
+                    <p>I talk through their situation and explain how I can help.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Ongoing support</h3>
+                    <p>Monthly reports, annual summaries, and clean records for tax time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet -->
+    <section class="lead-magnet" id="get-guide">
+        <div class="container">
+            <h2>New to trust administration?</h2>
+            <p>Download "The Family Trustee's First 90 Days," a plain-English guide to getting started right.</p>
+
+            <a href="/trustee-guide.pdf" class="btn-large btn-primary" download>Get the free guide</a>
+            <p class="form-note">Direct download. No email required.</p>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-photo">JK</div>
+                <div class="about-text">
+                    <h2>Jeff Kohn, CPA</h2>
+                    <p>I founded Streamline Bookkeeping in 2010 to help families navigate trust administration without the overwhelm.</p>
+                    <p>Every client gets two staff members assigned for consistency, plus custom checklists tailored to your trust's specific needs.</p>
+                    <p class="pricing">Monthly fees: $300–$1,500 depending on complexity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="schedule">
+        <div class="container">
+            <p>Schedule a free consultation to discuss.</p>
+            <a href="https://go.oncehub.com/streamlinebookkeeping" class="btn-large">Schedule a free consultation</a>
+            <p style="margin-top: 24px; margin-bottom: 0;">Or connect with Jeff on <a href="https://www.linkedin.com/in/jeff-kohn-cpa-7247b55" target="_blank" style="color: var(--white); text-decoration: underline;">LinkedIn</a>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Fiduciary Books</strong> &middot; Bookkeeping for small businesses, specializing in law firms and trusts &middot; Since 2010 &middot; Nationwide</p>
+            <p><a href="tel:5105452161">(510) 545-2161</a> | <a href="mailto:jeff@fiduciarybooks.com">jeff@fiduciarybooks.com</a></p>
+            <div class="footer-links">
+                <a href="/iolta/">Law firms</a>
+                <a href="/small-business/">Small business</a>
+                <a href="/personal/">Personal</a>
+                <a href="https://www.linkedin.com/in/jeff-kohn-cpa-7247b55" target="_blank">LinkedIn</a>
+                <a href="https://streamlinebookkeeping.com" target="_blank">Streamline Bookkeeping</a>
+                <a href="/privacy/">Privacy</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Fiduciary Books, a Streamline Bookkeeping site. Educational purposes only, not legal or tax advice.</p>
+        </div>
+    </footer>
+<script>document.addEventListener('DOMContentLoaded',function(){var b=document.querySelector('.nav-toggle'),n=document.querySelector('.header-nav');if(b&&n){b.addEventListener('click',function(){n.classList.toggle('open');b.setAttribute('aria-expanded',n.classList.contains('open'));});}});</script>
+</body>
+</html>
