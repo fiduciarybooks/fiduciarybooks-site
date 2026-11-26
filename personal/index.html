@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Bookkeeping | Streamline Bookkeeping</title>
+    <meta name="description" content="Personal bookkeeping. Every account tracked, reconciled monthly, and organized for tax time. Streamline Bookkeeping, since 2010.">
+    <link rel="canonical" href="https://fiduciarybooks.com/personal/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #0374bc; --primary-dark: #025a91; --secondary: #2c3e50; --accent: #f7ad54; --light-gray: #f5f5f5; --medium-gray: #666; --line: #e0e0e0; --text: #333; --white: #fff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.7; color: var(--text); background: var(--white); }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 1.3; }
+        a { color: var(--primary); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        header { background: var(--white); padding: 16px 0; border-bottom: 1px solid var(--line); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--primary); text-decoration: none; }
+        .header-nav { display: flex; gap: 20px; align-items: center; font-size: 0.9rem; flex-wrap: wrap; }
+        .header-nav a { color: var(--medium-gray); text-decoration: none; }
+        .header-nav a:hover { color: var(--primary); }
+        .header-nav a.current { color: var(--primary); font-weight: 600; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 72px 0 64px; }
+        .hero .kicker { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; margin-bottom: 16px; }
+        .hero h1 { font-size: 2.6rem; margin-bottom: 20px; max-width: 800px; }
+        .hero .lede { font-size: 1.3rem; max-width: 720px; opacity: 0.95; margin-bottom: 36px; }
+        .btn { display: inline-block; padding: 16px 30px; font-size: 1.05rem; font-weight: 600; font-family: 'Montserrat', sans-serif; text-decoration: none; border-radius: 6px; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .btn-primary { background: var(--accent); color: var(--secondary); }
+        .section { padding: 64px 0; }
+        .section.gray { background: var(--light-gray); }
+        .section h2 { text-align: center; font-size: 1.9rem; color: var(--secondary); margin-bottom: 12px; }
+        .section .sub { text-align: center; color: var(--medium-gray); max-width: 680px; margin: 0 auto 40px; font-size: 1.08rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .card { background: var(--white); padding: 28px; border-radius: 8px; border: 2px solid var(--line); }
+        .gray .card { border-color: transparent; }
+        .card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
+        .card p { color: var(--medium-gray); font-size: 0.98rem; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
+        .step { text-align: center; }
+        .step-number { width: 56px; height: 56px; background: var(--primary); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+        .step h3 { color: var(--secondary); font-size: 1.15rem; margin-bottom: 12px; }
+        .step p { color: var(--medium-gray); }
+        .pricing { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--primary); margin-top: 32px; }
+        .final-cta { padding: 72px 0; background: var(--primary); text-align: center; color: var(--white); }
+        .final-cta h2 { font-size: 2rem; margin-bottom: 14px; }
+        .final-cta p { opacity: 0.92; font-size: 1.1rem; max-width: 560px; margin: 0 auto 30px; }
+        .final-cta .btn { background: var(--white); color: var(--primary); }
+        .final-cta .btn:hover { background: var(--accent); color: var(--secondary); }
+        footer { background: var(--secondary); color: var(--white); padding: 40px 0; text-align: center; }
+        footer p { opacity: 0.8; font-size: 0.9rem; margin-bottom: 8px; }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { margin-top: 20px; }
+        .footer-links a { margin: 0 12px; opacity: 0.8; }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.9rem; } .hero .lede { font-size: 1.1rem; } .btn { padding: 14px 24px; font-size: 1rem; } }
+
+        /* Mobile nav */
+        .nav-toggle { display: none; background: none; border: 1px solid var(--line, #e0e0e0); border-radius: 6px; padding: 8px 10px; cursor: pointer; }
+        .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--secondary); margin: 4px 0; }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .header-nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 12px; font-size: 1rem; }
+            .header-nav.open { display: flex; }
+        }
+    </style>
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"695e8f1017dbee002189ef27"})},
+document.head.appendChild(o)}initApollo();</script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">Fiduciary Books</a>
+            <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <nav class="header-nav">
+                <a href="/">Trusts &amp; estates</a>
+                <a href="/iolta/">Law firms</a>
+                <a href="/small-business/">Small business</a>
+                <a href="/personal/" class="current">Personal</a>
+                <a href="tel:5105452161">(510) 545-2161</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="kicker">Personal bookkeeping</div>
+            <h1>Personal bookkeeping, with every account tracked and reconciled each month.</h1>
+            <p class="lede">Personal bookkeeping for people who want every account, bill, and investment statement tracked in one place, reconciled monthly, and organized for tax time.</p>
+            <a href="https://go.oncehub.com/streamlinebookkeeping" class="btn btn-primary">Schedule a free consultation</a>
+        </div>
+    </section>
+
+    <section class="section gray">
+        <div class="container">
+            <h2>What's included</h2>
+            <p class="sub">We do all small personal and small business bookkeeping, specializing in trust and law firm bookkeeping.</p>
+            <div class="grid">
+                <div class="card"><h3>Every account, in one place</h3><p>Bank, credit card, and investment accounts tracked in QuickBooks Online so you can see where everything stands.</p></div>
+                <div class="card"><h3>Monthly reconciliation</h3><p>Every account reconciled to the statement each month. Nothing piles up.</p></div>
+                <div class="card"><h3>Organized for tax time</h3><p>Everything your CPA needs, ready to go. Year-end becomes a review, not a reconstruction.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Who it's for</h2>
+            <p class="sub">More and more people are asking for personal bookkeeping.</p>
+            <div class="grid">
+                <div class="card"><h3>People who want everything tracked as they get older</h3><p>Every account and bill in one place, reconciled each month, so nothing gets missed.</p></div>
+                <div class="card"><h3>Adult children keeping a parent's accounts in order</h3><p>A monthly record the family can see, and clean records if a trust or estate comes later.</p></div>
+                <div class="card"><h3>Anyone with more accounts than they want to reconcile</h3><p>Several banks, cards, and investment statements, tracked by someone who does it every month.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section gray">
+        <div class="container">
+            <h2>How it works</h2>
+            <div class="steps">
+                <div class="step"><div class="step-number">1</div><h3>Free consultation</h3><p>We talk through your accounts and what you want to see each month.</p></div>
+                <div class="step"><div class="step-number">2</div><h3>Setup</h3><p>Bank, card, and investment accounts connect through read-only feeds in QuickBooks Online. No one moves money; the feeds only read. History caught up, a checklist built for you.</p></div>
+                <div class="step"><div class="step-number">3</div><h3>Ongoing</h3><p>Monthly reports, annual summaries, and clean records for tax time.</p></div>
+            </div>
+            <p class="pricing">Monthly fees from $300, depending on complexity</p>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <p>Schedule a free consultation to discuss.</p>
+            <a href="https://go.oncehub.com/streamlinebookkeeping" class="btn">Schedule a free consultation</a>
+            <p style="margin-top: 24px; margin-bottom: 0;">Or connect with Jeff on <a href="https://www.linkedin.com/in/jeff-kohn-cpa-7247b55" target="_blank" style="color: var(--white); text-decoration: underline;">LinkedIn</a>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Fiduciary Books</strong> &middot; Bookkeeping for small businesses, specializing in law firms and trusts &middot; Since 2010</p>
+            <p><a href="tel:5105452161">(510) 545-2161</a> | <a href="mailto:jeff@fiduciarybooks.com">jeff@fiduciarybooks.com</a></p>
+            <div class="footer-links">
+                <a href="/">Trusts &amp; estates</a>
+                <a href="/iolta/">Law firms</a>
+                <a href="/small-business/">Small business</a>
+                <a href="/personal/">Personal</a>
+                <a href="https://www.linkedin.com/in/jeff-kohn-cpa-7247b55" target="_blank">LinkedIn</a>
+                <a href="https://streamlinebookkeeping.com" target="_blank">Streamline Bookkeeping</a>
+                <a href="/privacy/">Privacy</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Fiduciary Books, a Streamline Bookkeeping site. Educational purposes only, not legal or tax advice.</p>
+        </div>
+    </footer>
+<script>document.addEventListener('DOMContentLoaded',function(){var b=document.querySelector('.nav-toggle'),n=document.querySelector('.header-nav');if(b&&n){b.addEventListener('click',function(){n.classList.toggle('open');b.setAttribute('aria-expanded',n.classList.contains('open'));});}});</script>
+</body>
+</html>
