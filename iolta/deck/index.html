@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Importance of IOLTA Bookkeeping | Presentation</title>
+    <meta name="description" content="A short presentation on IOLTA bookkeeping for law firms: what a State Bar review asks for, how client deposits are treated on the books, and the three numbers that must agree each month. By Jeff Kohn, CPA.">
+    <meta property="og:title" content="The Importance of IOLTA Bookkeeping">
+    <meta property="og:description" content="What a review asks for, the $5,000 example, and the monthly reconciliation. Jeff Kohn, CPA, Streamline Bookkeeping.">
+    <meta property="og:url" content="https://fiduciarybooks.com/iolta/deck/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0374bc; --primary-dark: #025a91; --secondary: #2c3e50; --accent: #f7ad54;
+            --light-gray: #f5f5f5; --medium-gray: #666; --line: #e0e0e0; --text: #333; --white: #fff;
+            --green: #2e7d5b; --red: #b23a3a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body { font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: #1c2833; overflow: hidden; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 1.25; }
+
+        .stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+        .deck { position: relative; width: min(100vw, calc(100vh * 16 / 9)); height: min(100vh, calc(100vw * 9 / 16)); background: var(--white); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+        .slide { position: absolute; inset: 0; padding: 6% 7%; display: none; flex-direction: column; justify-content: center; font-size: calc(min(100vw, 100vh * 16 / 9) * 0.0155); }
+        .slide.active { display: flex; }
+        .slide h1 { font-size: 3.2em; color: var(--secondary); margin-bottom: 0.4em; }
+        .slide h2 { font-size: 2.2em; color: var(--secondary); margin-bottom: 0.7em; }
+        .slide p { font-size: 1.25em; line-height: 1.55; max-width: 34em; }
+        .slide p + p { margin-top: 0.7em; }
+        .slide .kicker { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.85em; color: var(--primary); margin-bottom: 1.2em; }
+        .slide ul { font-size: 1.2em; line-height: 1.5; margin-left: 1.2em; max-width: 34em; }
+        .slide li { margin-bottom: 0.35em; }
+
+        .slide.cover { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); }
+        .slide.cover h1 { color: var(--white); font-size: 3.6em; max-width: 12em; }
+        .slide.cover .kicker { color: rgba(255,255,255,0.85); }
+        .slide.cover p { color: rgba(255,255,255,0.92); }
+        .slide.cover .byline { margin-top: 2.5em; font-family: 'Montserrat', sans-serif; font-size: 1.1em; }
+
+        .slide.quote { background: var(--secondary); color: var(--white); }
+        .slide.quote blockquote { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 2.1em; line-height: 1.4; border-left: 0.25em solid var(--accent); padding-left: 0.8em; max-width: 20em; }
+        .slide.quote cite { display: block; font-style: normal; font-family: 'Open Sans', sans-serif; font-size: 0.5em; opacity: 0.8; margin-top: 1.2em; }
+
+        .records-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1em; margin-top: 0.5em; }
+        .record { background: var(--light-gray); border-top: 0.35em solid var(--primary); border-radius: 0.5em; padding: 1.2em 1em; }
+        .record .n { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); font-size: 0.85em; letter-spacing: 0.1em; margin-bottom: 0.5em; }
+        .record h3 { font-size: 1.05em; color: var(--secondary); margin-bottom: 0.4em; }
+        .record p { font-size: 0.9em; color: var(--medium-gray); line-height: 1.4; }
+
+        .pool { display: grid; grid-template-columns: 1fr auto 1.3fr; gap: 2em; align-items: center; margin-top: 0.5em; }
+        .pool .bank { background: var(--secondary); color: var(--white); border-radius: 0.6em; padding: 1.6em; text-align: center; }
+        .pool .bank .label { font-size: 0.8em; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+        .pool .bank .amt { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2.6em; margin-top: 0.1em; }
+        .pool .eq { font-family: 'Montserrat', sans-serif; font-size: 3em; color: var(--primary); }
+        .pool .clients { display: grid; gap: 0.5em; }
+        .pool .client { display: flex; justify-content: space-between; background: var(--light-gray); border-radius: 0.4em; padding: 0.7em 1em; font-size: 1.05em; }
+        .pool .client b { font-family: 'Montserrat', sans-serif; color: var(--secondary); }
+
+        .ledger { width: 100%; border-collapse: collapse; font-size: 1em; margin-top: 0.3em; }
+        .ledger th, .ledger td { padding: 0.7em 0.6em; border-bottom: 1px solid var(--line); text-align: right; }
+        .ledger th { font-family: 'Montserrat', sans-serif; font-size: 0.72em; letter-spacing: 0.05em; text-transform: uppercase; color: var(--medium-gray); background: var(--light-gray); }
+        .ledger th:first-child, .ledger td:first-child { text-align: left; }
+        .ledger td:first-child { color: var(--secondary); font-weight: 600; }
+        .ledger .up { color: var(--green); } .ledger .down { color: var(--red); } .ledger .none { color: #aaa; }
+        .ledger tfoot td { font-weight: 700; color: var(--secondary); border-top: 2px solid var(--secondary); border-bottom: none; background: var(--light-gray); }
+        .ledger .pl { background: #fff7ec; }
+
+        .big { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 5.5em; color: var(--primary); line-height: 1; margin-bottom: 0.2em; }
+
+        .costs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em 1.5em; list-style: none; margin: 0.3em 0 0; font-size: 1.1em; }
+        .costs li { background: var(--light-gray); border-radius: 0.4em; padding: 0.6em 0.9em; }
+
+        .three { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3em; align-items: center; }
+        .three svg { width: 100%; max-width: 26em; height: auto; display: block; margin: 0 auto; }
+        .three-list { display: grid; gap: 1em; }
+        .three-list .item { display: flex; gap: 1em; align-items: flex-start; }
+        .three-list .dot { width: 2.2em; height: 2.2em; flex: none; border-radius: 50%; background: var(--primary); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .three-list b { display: block; color: var(--secondary); font-family: 'Montserrat', sans-serif; font-size: 1.15em; }
+        .three-list span { font-size: 1em; color: var(--medium-gray); }
+
+        .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 0.3em; }
+        .compare > div { border: 1px solid var(--line); border-radius: 0.6em; padding: 1.4em; }
+        .compare h3 { font-size: 1.2em; color: var(--secondary); margin-bottom: 0.5em; }
+        .compare p { font-size: 1.05em; color: var(--medium-gray); }
+        .compare .keeps { border-top: 0.35em solid var(--accent); }
+        .compare .stops { border-top: 0.35em solid var(--primary); }
+
+        .slide.close { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); align-items: flex-start; }
+        .slide.close h2 { color: var(--white); }
+        .slide.close p { color: rgba(255,255,255,0.92); }
+        .slide.close .btn { display: inline-block; margin-top: 1.5em; background: var(--accent); color: var(--secondary); font-family: 'Montserrat', sans-serif; font-weight: 600; text-decoration: none; padding: 0.8em 1.6em; border-radius: 0.35em; font-size: 1.15em; }
+        .slide.close .contact { margin-top: 2em; font-size: 1em; opacity: 0.9; }
+        .slide.close .contact a { color: var(--white); }
+
+        .footer-tag { position: absolute; left: 7%; bottom: 4%; font-family: 'Montserrat', sans-serif; font-size: 0.75em; color: var(--medium-gray); letter-spacing: 0.05em; }
+        .slide.cover .footer-tag, .slide.quote .footer-tag, .slide.close .footer-tag { color: rgba(255,255,255,0.7); }
+
+        .nav { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; background: rgba(0,0,0,0.55); color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-family: 'Montserrat', sans-serif; z-index: 10; }
+        .nav button { background: none; border: 1px solid rgba(255,255,255,0.5); color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; }
+        .nav button:hover { background: rgba(255,255,255,0.15); }
+        .nav a { color: #fff; opacity: 0.8; text-decoration: none; margin-left: 8px; font-size: 12px; }
+        .tap-left, .tap-right { position: absolute; top: 0; bottom: 0; width: 25%; cursor: pointer; z-index: 5; }
+        .tap-left { left: 0; } .tap-right { right: 0; }
+
+        @media (max-width: 700px) {
+            .slide { font-size: calc(100vw * 0.0155); }
+            .records-grid { grid-template-columns: repeat(2, 1fr); }
+            .pool { grid-template-columns: 1fr; gap: 0.6em; }
+            .pool .eq { text-align: center; }
+        }
+    </style>
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"695e8f1017dbee002189ef27"})},
+document.head.appendChild(o)}initApollo();</script>
+</head>
+<body>
+<div class="stage">
+<div class="deck" id="deck">
+    <div class="tap-left" id="tapLeft" aria-hidden="true"></div>
+    <div class="tap-right" id="tapRight" aria-hidden="true"></div>
+
+    <!-- 1 Cover -->
+    <section class="slide cover active">
+        <div class="kicker">For law firms holding client funds</div>
+        <h1>The Importance of IOLTA Bookkeeping</h1>
+        <p>California's oversight asks for records. What those records consist of, how client deposits are treated on the books, and how costs paid on a client's behalf are recorded.</p>
+        <div class="byline">Jeff Kohn, CPA &middot; Streamline Bookkeeping</div>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 2 One sentence -->
+    <section class="slide quote">
+        <blockquote>
+            Some of the money a law firm collects is not income. The firm keeps a separate bank account solely for client funds, money held on deposit and refundable to the client. As funds are withdrawn, each payment is coded to an expense if applicable and to reduce that client's trust balance. When the firm is paid, the money is transferred from the trust account to its regular business account, and that is when it is declared as income.
+            <cite>Jeff Kohn, CPA</cite>
+        </blockquote>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 3 What changed -->
+    <section class="slide">
+        <div class="kicker">What changed in 2022</div>
+        <h2>Firms register their trust accounts with the State Bar each year, and some are selected for a review of the records.</h2>
+        <p>Audits were less common in previous years. An examination often came about when something prompted it: a client complaint, a bank report of an insufficient funds item or a fee dispute.</p>
+        <p>That changed in 2022 when California adopted new oversight rules following a review of past mishandling of client funds.</p>
+        <p><strong>Firms of many sizes have been found missing one or more of the records those reviews ask for.</strong></p>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 4 Five records -->
+    <section class="slide">
+        <div class="kicker">What the records consist of</div>
+        <h2>Five records a review asks for</h2>
+        <div class="records-grid">
+            <div class="record"><div class="n">01</div><h3>Trust account transaction report</h3><p>All deposits and withdrawals.</p></div>
+            <div class="record"><div class="n">02</div><h3>The same report, by client</h3><p>Each client's deposits, disbursements, balance.</p></div>
+            <div class="record"><div class="n">03</div><h3>Bank statements</h3><p>Every month, for the trust account.</p></div>
+            <div class="record"><div class="n">04</div><h3>Canceled checks</h3><p>The checks behind each disbursement.</p></div>
+            <div class="record"><div class="n">05</div><h3>Monthly reconciliation report</h3><p>Bank, books, and client ledgers agree.</p></div>
+        </div>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 5 Whose money -->
+    <section class="slide">
+        <div class="kicker">Whose money is in the account</div>
+        <h2>The balance in the account is the sum of many smaller balances, each belonging to a named client.</h2>
+        <div class="pool">
+            <div class="bank"><div class="label">Pooled trust account</div><div class="amt">$41,800</div></div>
+            <div class="eq">=</div>
+            <div class="clients">
+                <div class="client"><span>Client A</span><b>$3,365</b></div>
+                <div class="client"><span>Client B</span><b>$12,000</b></div>
+                <div class="client"><span>Client C</span><b>$25,000</b></div>
+                <div class="client"><span>Client D</span><b>$1,435</b></div>
+            </div>
+        </div>
+        <p style="margin-top:1.2em;">Ordinary bookkeeping asks what a transaction was for. IOLTA bookkeeping asks the same question and one more: <strong>which client the money belonged to.</strong></p>
+        <div class="footer-tag">fiduciarybooks.com/iolta &middot; illustrative figures</div>
+    </section>
+
+    <!-- 6 Balance sheet -->
+    <section class="slide">
+        <div class="kicker">The accounting side</div>
+        <h2>The Trust Bank Account is an Asset. Client Trust Funds Held is a Liability at the same figure.</h2>
+        <p>Under cash basis bookkeeping, money received is ordinarily recorded as Income on the date it is received. A client's advance deposit into an IOLTA account is the exception. The money stays the client's while the firm holds it.</p>
+        <p>The Trust Bank Account appears as an Asset. A Liability account for Client Trust Funds Held appears at the same figure. The Liability total is the sum of the individual client balances.</p>
+        <p>Income is recorded on the date an earned fee is transferred from the Trust Bank Account to the Operating Bank Account.</p>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 7 Example table -->
+    <section class="slide">
+        <div class="kicker">Example</div>
+        <h2>A $5,000 advance fee deposit for a family law matter</h2>
+        <table class="ledger">
+            <thead><tr><th>Event</th><th>Trust Bank Account (Asset)</th><th>Client Trust Funds Held (Liability)</th><th>Operating Bank Account</th><th class="pl">Profit and Loss</th></tr></thead>
+            <tbody>
+                <tr><td>Deposit received</td><td class="up">+ $5,000</td><td class="up">+ $5,000</td><td class="none">no change</td><td class="pl none">unchanged</td></tr>
+                <tr><td>Filing fee paid from trust</td><td class="down">&minus; $435</td><td class="down">&minus; $435</td><td class="none">no change</td><td class="pl none">unchanged</td></tr>
+                <tr><td>Firm invoices $1,200, transfers to operating</td><td class="down">&minus; $1,200</td><td class="down">&minus; $1,200</td><td class="up">+ $1,200</td><td class="pl up">+ $1,200 Fee Income</td></tr>
+                <tr><td>Case concludes, balance refunded</td><td class="down">&minus; $3,365</td><td class="down">&minus; $3,365</td><td class="none">no change</td><td class="pl none">unchanged</td></tr>
+            </tbody>
+            <tfoot><tr><td>After the matter closes</td><td>$0</td><td>$0</td><td>$1,200</td><td class="pl">$1,200</td></tr></tfoot>
+        </table>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 8 Only $1,200 -->
+    <section class="slide">
+        <div class="kicker">The takeaway from the example</div>
+        <div class="big">$1,200</div>
+        <h2>Only the earned fee appeared on the Profit and Loss.</h2>
+        <p>The filing fee did not appear as a firm Expense, since the firm paid it with the client's money rather than its own.</p>
+        <p>A cost the firm advances from its Operating Bank Account and bills back later is recorded differently, as a Receivable from the client. A true retainer paid to secure availability sits outside all of this, since it is earned on receipt.</p>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 9 Costs -->
+    <section class="slide">
+        <div class="kicker">The costs paid on behalf of clients</div>
+        <h2>A single matter can produce a long series of small payments</h2>
+        <ul class="costs">
+            <li>Court filing and electronic filing fees</li>
+            <li>Service of process and courier charges</li>
+            <li>Certified copies and recording fees</li>
+            <li>Publication of required notices</li>
+            <li>Probate referee or appraiser fees</li>
+            <li>Bond premiums</li>
+            <li>Court reporter and transcript charges</li>
+            <li>Expert, consultant, title or records search fees</li>
+            <li>Mediation or arbitration administrative fees</li>
+        </ul>
+        <p style="margin-top:1em;">Cost advances come at unpredictable intervals, which makes the client name easy to postpone. <strong>Entering it at the time of payment keeps the record complete without a later reconstruction.</strong></p>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 10 Three numbers -->
+    <section class="slide">
+        <div class="kicker">Every month</div>
+        <h2>The monthly reconciliation ties three figures together.</h2>
+        <div class="three">
+            <svg viewBox="0 0 360 320" role="img" aria-label="Three balances that must agree">
+                <polygon points="180,40 40,270 320,270" fill="none" stroke="#0374bc" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="180" cy="40" r="34" fill="#0374bc"/><text x="180" y="47" text-anchor="middle" fill="#fff" font-family="Montserrat, sans-serif" font-weight="700" font-size="20">1</text>
+                <circle cx="40" cy="270" r="34" fill="#0374bc"/><text x="40" y="277" text-anchor="middle" fill="#fff" font-family="Montserrat, sans-serif" font-weight="700" font-size="20">2</text>
+                <circle cx="320" cy="270" r="34" fill="#0374bc"/><text x="320" y="277" text-anchor="middle" fill="#fff" font-family="Montserrat, sans-serif" font-weight="700" font-size="20">3</text>
+                <text x="180" y="185" text-anchor="middle" fill="#2c3e50" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">same figure</text>
+                <text x="180" y="207" text-anchor="middle" fill="#666" font-family="Open Sans, sans-serif" font-size="12">every month</text>
+            </svg>
+            <div class="three-list">
+                <div class="item"><div class="dot">1</div><div><b>Bank statement balance</b><span>What the bank says is in the trust account.</span></div></div>
+                <div class="item"><div class="dot">2</div><div><b>Trust account transaction report</b><span>What the books say, all deposits and withdrawals.</span></div></div>
+                <div class="item"><div class="dot">3</div><div><b>Sum of all individual client balances</b><span>What the client ledgers add up to.</span></div></div>
+                <p style="font-size:1em; margin-top:0.5em;">The three-way comparison is what catches a negative client balance early. In most instances it traces back to a timing error rather than anything more.</p>
+            </div>
+        </div>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 11 Spreadsheet -->
+    <section class="slide">
+        <div class="kicker">Tools</div>
+        <h2>Where a spreadsheet keeps up and where it stops</h2>
+        <div class="compare">
+            <div class="keeps"><h3>Keeps up</h3><p>With one or two clients holding funds, a spreadsheet with a tab per client does the job and does it well.</p></div>
+            <div class="stops"><h3>Stops</h3><p>Partial deposits, cost advances on different dates, transfers of earned fees, and refunds of unused balances multiply the number of places a single figure gets entered by hand.</p></div>
+        </div>
+        <p style="margin-top:1.2em;">Software built for trust accounting, or general accounting software set up with client tracking and a dedicated trust account, produces the per-client breakdown from the same entries.</p>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 12 What the records answer -->
+    <section class="slide quote">
+        <blockquote>
+            Records kept in the ordinary course let a firm say what belongs to whom on any day someone asks.
+            <cite>The attorney is responsible for the account. The bookkeeper maintains the history, and the attorney and the CPA work from it.</cite>
+        </blockquote>
+        <div class="footer-tag">fiduciarybooks.com/iolta</div>
+    </section>
+
+    <!-- 13 Close -->
+    <section class="slide close">
+        <div class="kicker">Streamline Bookkeeping</div>
+        <h2>Bookkeeping for small businesses. Specializing in law firms and trusts.</h2>
+        <p>We do all small personal and small business bookkeeping, specializing in trust and law firm bookkeeping: per-client ledgers, the monthly three-way reconciliation, and the records a review asks for.</p>
+        <a class="btn" href="https://go.oncehub.com/streamlinebookkeeping">Schedule a free consultation</a>
+        <p class="contact">Jeff Kohn, CPA &middot; <a href="mailto:jeff@fiduciarybooks.com">jeff@fiduciarybooks.com</a> &middot; <a href="tel:5105452161">(510) 545-2161</a><br>Read the full article at <a href="https://fiduciarybooks.com/iolta/">fiduciarybooks.com/iolta</a></p>
+        <div class="footer-tag">General information only, not legal or tax advice.</div>
+    </section>
+</div>
+</div>
+
+<div class="nav">
+    <button id="prev" aria-label="Previous slide">&#8249;</button>
+    <span id="counter">1 / 13</span>
+    <button id="next" aria-label="Next slide">&#8250;</button>
+    <a href="/iolta/">Read the article</a>
+</div>
+
+<script>
+(function(){
+    var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+    var i = 0, n = slides.length;
+    var counter = document.getElementById('counter');
+    function go(k){
+        if (k < 0 || k >= n) return;
+        slides[i].classList.remove('active');
+        i = k;
+        slides[i].classList.add('active');
+        counter.textContent = (i+1) + ' / ' + n;
+        try { history.replaceState(null, '', '#' + (i+1)); } catch(e) {}
+    }
+    document.getElementById('next').addEventListener('click', function(){ go(i+1); });
+    document.getElementById('prev').addEventListener('click', function(){ go(i-1); });
+    document.getElementById('tapRight').addEventListener('click', function(e){ if (e.target.closest('a')) return; go(i+1); });
+    document.getElementById('tapLeft').addEventListener('click', function(){ go(i-1); });
+    document.addEventListener('keydown', function(e){
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(i+1); }
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(i-1); }
+        if (e.key === 'Home') go(0);
+        if (e.key === 'End') go(n-1);
+    });
+    var x0 = null;
+    document.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+    document.addEventListener('touchend', function(e){
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0; x0 = null;
+        if (Math.abs(dx) > 40) go(dx < 0 ? i+1 : i-1);
+    }, {passive:true});
+    var h = parseInt((location.hash || '').replace('#',''), 10);
+    if (h > 1 && h <= n) go(h-1);
+})();
+</script>
+</body>
+</html>
